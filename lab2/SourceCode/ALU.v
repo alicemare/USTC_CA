@@ -31,6 +31,7 @@ module ALU(
     );    
     
     // 请补全此处代码
+    case (AluContrl)
 
 endmodule
 
