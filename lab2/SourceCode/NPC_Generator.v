@@ -31,5 +31,20 @@ module NPC_Generator(
     );
     
     // 请补全此处代码
+    always @(*) begin
+        // br > jalr > jal
+        if (BranchE) begin
+            PC_in <= BranchTarget;
+        end
+        else if (JalrE) begin
+            PC_in <= JalrTarget;
+        end
+        else if (JalD) begin
+            PC_in <= JalTarget;
+        end
+        else begin
+            PC_in <= PCF + 4;
+        end
+    end
     
 endmodule
