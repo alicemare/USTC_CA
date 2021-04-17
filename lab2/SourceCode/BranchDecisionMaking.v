@@ -29,6 +29,18 @@ module BranchDecisionMaking(
     );
     
     // 请补全此处代码
+    always @(*) begin
+    case(BranchTypeE)
+        NOBRANCH  : BranchE = 0;
+        BEQ       : BranchE = ( $signed(Operand1) == $signed(Operand2) ) ? 1 : 0;
+        BNE       : BranchE = ( $signed(Operand1) == $signed(Operand2) ) ? 0 : 1;
+        BLT       : BranchE = ( $signed(Operand1) < $signed(Operand2) ) ? 1 : 0;
+        BLTU      : BranchE = ( Operand1 < Operand2 ) ? 1 : 0
+        BGE       : BranchE = ( $signed(Operand1) > $signed(Operand2) ) ? 1 : 0
+        BGEU      : BranchE = ( Operand1 > Operand2 ) ? 1 : 0
+        default   : BranchE = 1'b0;  //NOBRANCH
+    endcase
+    end
 
 endmodule
 
