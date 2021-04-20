@@ -39,6 +39,31 @@ module HarzardUnit(
     );
     
     // 请补全此处代码
+    /////////////////////////////////////////////////////////////////
+    // Forward1E: ALU的操作数1来源
+    // 2'b00表示来自ALU转发数据 2'b01表示来自write back data转发
+    // 2'b10表示来自PC2'b11表示来自reg1
+    // Forward2E: ALU的操作数2来源
+    // 2'b00表示来自ALU转发数据 2'b01表示来自write back data转发 
+    // 2'b10表示来自reg2地址 2'b11表示来自reg2或立即数
+    /////////////////////////////////////////////////////////////////
+    
+    // do nothing
+    always @(*) begin
+        StallF = 0;
+        FlushF = 0;
+        StallD = 0;
+        FlushD = 0;
+        StallE = 0;
+        FlushE = 0;
+        StallM = 0;
+        FlushM = 0;
+        StallW = 0;
+        FlushW = 0;
+        Forward1E = 2'b00;
+        Forward2E = 2'b00;
+    end
+
 
 endmodule
 
